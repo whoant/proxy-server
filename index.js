@@ -1,9 +1,16 @@
+require('dotenv').config();
+
 const Koa = require("koa");
 const koaBody = require('koa-body');
+const cors = require('@koa/cors');
 const axios = require("axios");
+
+const PORT = process.env.PORT;
+console.log("Connect server on port " + PORT);
 
 const app = new Koa();
 
+app.use(cors());
 app.use(koaBody());
 
 app.use(async (ctx) => {
@@ -31,4 +38,4 @@ app.use(async (ctx) => {
     ctx.body = resp;
 });
 
-app.listen(3000);
+app.listen(PORT);

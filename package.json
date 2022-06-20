@@ -7,7 +7,9 @@
     "dev": "nodemon index.js"
   },
   "dependencies": {
+    "@koa/cors": "^3.3.0",
     "axios": "^0.27.2",
+    "dotenv": "^16.0.1",
     "koa": "^2.13.4",
     "koa-body": "^5.0.0"
   }
