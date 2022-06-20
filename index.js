@@ -23,7 +23,7 @@ app.use(async (ctx) => {
             method: method || "get",
             url,
             data: body,
-            headers: header
+          
         });
 
         resp = data;
