@@ -1,0 +1,29 @@
+# fly.toml app configuration file generated for proxy-whoant-2 on 2023-07-27T11:25:20+07:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "proxy-whoant-2"
+primary_region = "nrt"
+
+[[services]]
+  protocol = "tcp"
+  internal_port = 3128
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ["app"]
+
+  [[services.ports]]
+    port = 3128
+
+  [services.concurrency]
+    type = "connections"
+    hard_limit = 25
+    soft_limit = 20
+
+  [[services.tcp_checks]]
+    grace_period = "1s"
+    interval = "15s"
+    restart_limit = 0
+    timeout = "2s"
